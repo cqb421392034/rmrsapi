@@ -31,7 +31,8 @@ namespace Coldairarrow.Business.Base_Manage
                     Id = x.Id,
                     ParentId = x.ParentId,
                     Text = x.Name,
-                    Value = x.Id
+                    Value = x.Id,
+                    Name=x.Name
                 }).ToList();
 
             return TreeHelper.BuildTree(treeList);

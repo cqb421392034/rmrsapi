@@ -21,11 +21,17 @@ namespace Coldairarrow.Util
             List<T> resData = new List<T>();
             var rootNodes = allNodes.Where(x => x.ParentId == "0" || x.ParentId.IsNullOrEmpty()).ToList();
             resData = rootNodes;
-            resData.ForEach(aRootNode =>
+            /// 如果不是请求整个树 直接返回查询的结果
+            if (resData.Count > 0)
             {
-                if (HaveChildren(allNodes, aRootNode.Id))
-                    aRootNode.Children = _GetChildren(allNodes, aRootNode);
-            });
+                resData.ForEach(aRootNode =>
+                {
+                    if (HaveChildren(allNodes, aRootNode.Id))
+                        aRootNode.Children = _GetChildren(allNodes, aRootNode);
+                });
+            }
+            else
+                return allNodes;
 
             return resData;
         }

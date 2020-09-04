@@ -58,7 +58,17 @@ namespace Coldairarrow.Business.Base_Manage
                       EF.Functions.Like(x.UserName, keyword)
                       || EF.Functions.Like(x.RealName, keyword));
             }
-
+            if (!search.UserName.IsNullOrEmpty()) {
+                var keyword = $"%{search.UserName}%";
+                q = q.Where(x =>
+                      EF.Functions.Like(x.UserName, keyword));
+            }
+            if (!search.RealName.IsNullOrEmpty())
+            {
+                var keyword = $"%{search.RealName}%";
+                q = q.Where(x =>
+                      EF.Functions.Like(x.RealName, keyword));
+            }
             var list = await q.GetPageResultAsync(input);
 
             await SetProperty(list.data);

@@ -28,5 +28,7 @@ namespace Coldairarrow.Business.Base_Manage
         public bool all { get; set; }
         public string userId { get; set; }
         public string keyword { get; set; }
+        public string UserName { get; set; }
+        public string RealName { get; set; }
     }
 }

@@ -50,6 +50,7 @@ namespace Coldairarrow.Api.Controllers.Base_Manage
             }
             else
             {
+                
                 await _departmentBus.UpdateDataAsync(theData);
             }
         }
@@ -57,6 +58,8 @@ namespace Coldairarrow.Api.Controllers.Base_Manage
         [HttpPost]
         public async Task DeleteData(List<string> ids)
         {
+            //todo:判断该部门是否有用户
+            //todo:判断该部门是否有下级
             await _departmentBus.DeleteDataAsync(ids);
         }
 

@@ -18,6 +18,7 @@ namespace Coldairarrow.Business.Base_Manage
     public class DepartmentsTreeInputDTO
     {
         public string parentId { get; set; }
+        public string Name{ get; set; }
     }
 
     public class Base_DepartmentTreeDTO : TreeModel
@@ -26,5 +27,6 @@ namespace Coldairarrow.Business.Base_Manage
         public string title { get => Text; }
         public string value { get => Id; }
         public string key { get => Id; }
+        public string Name { get; set; }
     }
 }
